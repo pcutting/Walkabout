@@ -3,6 +3,10 @@ Sandbox project for modeling concepts.
 
 UX purchased: https://ui8.net/royalz-store/products/deleted-611ca51f04f024004251da7b
 
+Directions: 
+1) Put your api key in the local.properties file, with key `MAPBOX_API_KEY=`
+    `MAPBOX_API_KEY=xyz...`
+
 Description: 
 Using mapbox, create an application for tracking a walk.
 

@@ -6,6 +6,11 @@ plugins {
 android {
     compileSdk 31
 
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+    //MAPBOX_API_KEY for mapbox api. -> resources.getString(R.string.mapbox_api_key)
+
+
     defaultConfig {
         applicationId "com.philipcutting.walkabout"
         minSdk 24
@@ -16,7 +21,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures{
+            viewBinding true
+    }
+
     buildTypes {
+        debug {
+            resValue("string", "mapbox_api_key", localProperties['MAPBOX_API_KEY'])
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
